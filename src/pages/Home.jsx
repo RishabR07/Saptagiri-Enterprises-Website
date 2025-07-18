@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import pump from '../assets/images/pump3.jpg';
+import pump from '../assets/images/pump.jpg';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
-    <div className="w-full text-white bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e]">
-      
+    <div className="w-full text-white bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] pt-24">
       {/* Hero Section with Image */}
       <div className="relative h-screen w-full overflow-hidden">
         <img
@@ -13,7 +13,7 @@ export default function Home() {
           alt="PUMP IMG"
           className="w-full h-full object-cover object-center"
           loading="eager"
-/>
+        />
 
         <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center px-4">
           <motion.h1
@@ -82,13 +82,14 @@ export default function Home() {
         >
           Visit our nearest station or explore services now.
         </motion.p>
-        <motion.a
-          href="/services"
-          className="inline-block bg-cyan-500 hover:bg-cyan-600 text-white font-semibold px-6 py-3 rounded"
-          whileHover={{ scale: 1.05 }}
-        >
-          Explore Services
-        </motion.a>
+        <motion.div whileHover={{ scale: 1.05 }}>
+          <Link
+            to="/services"
+            className="inline-block bg-cyan-500 hover:bg-cyan-600 text-white font-semibold px-6 py-3 rounded"
+          >
+            Explore Services
+          </Link>
+        </motion.div>
       </section>
     </div>
   );

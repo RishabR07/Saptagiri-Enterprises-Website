@@ -5,12 +5,12 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-tr from-blue-900 via-indigo-800 to-purple-800 text-white pt-10 pb-6 mt-20">
+    <footer className="bg-gradient-to-tr from-blue-900 via-indigo-800 to-purple-800 text-white pt-10 pb-6 mt-0">
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-10 text-sm">
         
         {/* About */}
         <div>
-          <h3 className="text-xl font-bold mb-4">Saptagiri EnterPrices</h3>
+          <h3 className="text-xl font-bold mb-4">Saptagiri Enterprises</h3>
           <p className="text-gray-200 leading-relaxed">
             Trusted local petrol pump delivering quality fuel and customer satisfaction in Mangalore.
           </p>

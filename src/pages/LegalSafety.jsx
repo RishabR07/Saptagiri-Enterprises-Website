@@ -1,5 +1,12 @@
 import React from "react";
-import { FaFireExtinguisher, FaExclamationTriangle, FaCertificate, FaCamera, FaHandsHelping, FaRecycle } from "react-icons/fa";
+import {
+  FaFireExtinguisher,
+  FaExclamationTriangle,
+  FaCertificate,
+  FaCamera,
+  FaHandsHelping,
+  FaRecycle,
+} from "react-icons/fa";
 import { motion } from "framer-motion";
 
 export default function LegalSafety() {
@@ -37,24 +44,25 @@ export default function LegalSafety() {
   ];
 
   return (
-    <section className="min-h-screen py-16 px-6 bg-gradient-to-br from-gray-900 via-indigo-900 to-black text-white">
+    <section className="min-h-screen pt-24 px-6 py-16 bg-gradient-to-br from-gray-900 via-indigo-900 to-black text-white">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-10 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500">
+        <h2 className="text-4xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-500 drop-shadow-lg">
           Legal & Safety Measures
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {safetyItems.map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-lg hover:shadow-cyan-400/30 transition-shadow"
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              viewport={{ once: true }}
+              className="bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-lg hover:shadow-[0_0_25px_#00f7ff] transition-shadow"
             >
               <div className="flex items-center gap-4 mb-4">
                 {item.icon}
-                <h3 className="text-xl font-semibold">{item.title}</h3>
+                <h3 className="text-xl font-semibold text-cyan-300">{item.title}</h3>
               </div>
               <p className="text-sm text-gray-300">{item.desc}</p>
             </motion.div>
