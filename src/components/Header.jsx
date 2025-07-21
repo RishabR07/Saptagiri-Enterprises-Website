@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Navbar from './Navbar';
-import logo from '../assets/images/logo1.webp';
+import logo from '../assets/images/logo.gif'; // Use the correct logo file
 import ThemeToggle from './common/ThemeToggle';
 
 export default function Header({ darkMode, setDarkMode }) {
@@ -31,7 +31,7 @@ export default function Header({ darkMode, setDarkMode }) {
           </div>
         </motion.div>
 
-        {/* Center: Navbar links */}
+        {/* Middle: Navbar */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}

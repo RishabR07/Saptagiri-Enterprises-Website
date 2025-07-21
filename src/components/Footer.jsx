@@ -42,6 +42,7 @@ export default function Footer() {
       {/* Footer Bottom */}
       <div className="border-t border-white/20 mt-10 pt-4 text-center text-gray-300 text-xs">
         &copy; {year} Designed and Developed by Rishab Shetty. All rights reserved.
+       
       </div>
     </footer>
   );

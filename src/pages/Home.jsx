@@ -1,7 +1,9 @@
 import React from 'react';
+
 import { motion } from 'framer-motion';
-import pump from '../assets/images/pump3.jpg';
 import { Link } from 'react-router-dom';
+import pump from '../assets/images/pump3.jpg'; // ✅ Only one valid import
+
 
 export default function Home() {
   return (

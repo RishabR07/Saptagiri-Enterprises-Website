@@ -17,6 +17,7 @@ export default function Services() {
       image: '/image/services-banner.jpg',
     },
     {
+
       name: 'AD-BLUE',
       desc: 'Liquid used in diesel vehicles to reduce harmful emissions.',
       price: '₹55/litre',
@@ -40,6 +41,7 @@ export default function Services() {
       price: '₹60 (2-wheeler) | ₹80 (4-wheeler)',
       image: '/image/emmission-test.jpg',
     },
+    
     {
       name: 'XP95 GAS',
       desc: 'Used for higher power bikes and cars.',
@@ -52,6 +54,7 @@ export default function Services() {
       price: '₹400 – ₹1,200 depending on vehicle type.',
       image: '/image/oilchanger.jpg',
     },
+
   ];
 
   const [showPrices, setShowPrices] = useState(Array(services.length).fill(false));

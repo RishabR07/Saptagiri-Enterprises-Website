@@ -1,103 +1,119 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { IoCloseCircle } from 'react-icons/io5'; // Close icon
+import { IoCloseCircle } from 'react-icons/io5';
 
 export default function About() {
-  const [selectedImage, setSelectedImage] = useState(null); // state for full-screen image
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const employees = [
     { name: 'Praveen', role: 'Cashier 1', img: 'praveen.jpg' },
-    { name: 'Naveen', role: 'Manager', img: 'naveen.jpg' },
+     { name: 'Naveen', role: 'Manager', img: 'naveen.jpg' },
     { name: 'Yeshwant', role: 'Cashier 2', img: 'yeshwant.jpg' },
     { name: 'Rakesh', role: 'Cashier 2', img: 'rakesh.jpg' },
     { name: 'Nishanth', role: 'Cashier 3', img: 'nishant.jpg' },
-    
+   
   ];
 
   return (
-    <div
-      className="relative min-h-screen bg-gradient-to-b from-orange-500 via-white to-blue-700 bg-cover bg-center"
-      style={{ backgroundBlendMode: 'overlay', backgroundImage: 'url("/images/fuel-bg.jpg")' }}
-    >
-      <div className="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm"></div>
+    <div className="min-h-screen bg-gray-800 text-white py-20 px-4">
+      {/* Title */}
+      <motion.h2
+        className="text-4xl font-bold text-center mb-12"
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
+        About Saptagiri Enterprises
+      </motion.h2>
 
-      <div className="relative z-10 max-w-6xl mx-auto pt-24 pb-16 px-6 text-white">
-        <h2 className="text-4xl font-bold text-center mb-12">About Saptagiri Enterprises</h2>
+      {/* Info Cards */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+        {[
+          { title: 'Petrol Pump Name', detail: 'Saptagiri Enterprises' },
+          { title: 'Owner', detail: 'B. Narayan Shetty' },
+          {
+            title: 'Address',
+            detail: 'KPT, Kadri Hills\nMangalore, Karnataka, India',
+          },
+          {
+            title: 'Operating Hours',
+            detail: '5:00 AM – 2:00 AM (Everyday)',
+          },
+        ].map((item, i) => (
+          <motion.div
+            key={i}
+            className="bg-gray-700 rounded-lg p-6 shadow-md"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.2 }}
+          >
+            <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+            <p className="whitespace-pre-line text-gray-300">{item.detail}</p>
+          </motion.div>
+        ))}
+      </div>
 
-        {/* Info Blocks */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div className="bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-6 border border-white/20">
-            <h3 className="text-xl font-semibold mb-2">Petrol Pump Name</h3>
-            <p>Saptagiri Enterprises</p>
-          </div>
-          <div className="bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-6 border border-white/20">
-            <h3 className="text-xl font-semibold mb-2">Owner</h3>
-            <p>B. Narayan Shetty</p>
-          </div>
-          <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6 bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-6 border border-white/20">
-            <div>
-              <h3 className="text-xl font-semibold mb-2">Address</h3>
-              <p>KPT, Kadri Hills<br />Mangalore, Karnataka, India</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-2">Operating Hours</h3>
-              <p>5:00 AM – 2:00 AM (Everyday)</p>
-            </div>
-          </div>
+      {/* Employee Info */}
+      <h3 className="text-3xl font-bold mb-6 text-center">Employee Information</h3>
+      <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+        <div className="bg-gray-700 rounded-lg p-6 shadow-md">
+          <h4 className="text-xl font-semibold mb-2">Total Workers</h4>
+          <p>Approximately 30</p>
         </div>
-
-        {/* Employee Info */}
-        <h3 className="text-3xl font-bold mb-6 text-center">Employee Information</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div className="bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-6 border border-white/20">
-            <h4 className="text-xl font-semibold mb-2">Total Workers</h4>
-            <p>Approximately 30</p>
-          </div>
-          <div className="bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-6 border border-white/20">
-            <h4 className="text-xl font-semibold mb-2">Shifts</h4>
-            <ul className="list-disc list-inside">
-              <li>Shift 1: 9:00 AM – 6:30 PM</li>
-              <li>Shift 2: 6:30 PM – 9:00 AM</li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Staff Cards */}
-        <h4 className="text-2xl font-semibold mb-4 text-center">Key Staff Members</h4>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {employees.map((emp, i) => (
-            <motion.div
-              key={i}
-              className="bg-white/10 backdrop-blur-md rounded-xl shadow-lg p-6 border border-white/20 text-center cursor-pointer"
-              whileHover={{ scale: 1.03 }}
-              onClick={() => setSelectedImage(`/image/${emp.img}`)}
-            >
-              <img
-                src={`/image/${emp.img}`}
-                alt={emp.name}
-                className="w-32 h-32 mx-auto mb-4 rounded-xl object-cover border-4 border-cyan-500 shadow-md"
-              />
-              <h5 className="text-lg font-semibold text-cyan-300">{emp.name}</h5>
-              <p className="text-gray-200">{emp.role}</p>
-            </motion.div>
-          ))}
+        <div className="bg-gray-700 rounded-lg p-6 shadow-md">
+          <h4 className="text-xl font-semibold mb-2">Shifts</h4>
+          <ul className="list-disc list-inside text-gray-300">
+            <li>Shift 1: 9:00 AM – 6:30 PM</li>
+            <li>Shift 2: 6:30 PM – 9:00 AM</li>
+          </ul>
         </div>
       </div>
 
-      {/* Fullscreen Image Viewer */}
-      {selectedImage && (
-        <div className="fixed inset-0 bg-black bg-opacity-90 backdrop-blur z-50 flex items-center justify-center">
-          <img
-            src={selectedImage}
-            alt="Staff"
-            className="max-w-full max-h-[90vh] rounded-xl shadow-2xl"
-          />
-          <button
-            onClick={() => setSelectedImage(null)}
-            className="absolute top-4 right-4 text-white text-4xl hover:text-red-400 transition duration-200"
+      {/* Employee Gallery */}
+      <h3 className="text-3xl font-bold mb-8 text-center">Key Staff Members</h3>
+      <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-6 mb-16">
+        {employees.map((emp, index) => (
+          <motion.div
+            key={index}
+            className="bg-gray-700 rounded-lg p-4 text-center shadow-md cursor-pointer hover:scale-105 transition-transform"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: index * 0.1 }}
+            onClick={() => setSelectedImage(emp)}
           >
-            <IoCloseCircle />
-          </button>
+            <div className="w-32 h-32 mx-auto border-4 border-cyan-400 mb-3 overflow-hidden shadow-md">
+              <img
+                src={`/images/${emp.img}`}
+                alt={emp.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <p className="text-lg font-semibold">{emp.name}</p>
+            <p className="text-sm text-gray-300">{emp.role}</p>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Lightbox */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative max-w-2xl w-full bg-white text-black rounded-xl p-4 shadow-xl">
+            <button
+              className="absolute top-2 right-2 text-2xl text-red-600 hover:text-red-800"
+              onClick={() => setSelectedImage(null)}
+            >
+              <IoCloseCircle />
+            </button>
+            <img
+              src={`/images/${selectedImage.img}`}
+              alt={selectedImage.name}
+              className="w-full h-[70vh] object-contain rounded-lg mb-4"
+            />
+            <h4 className="text-xl font-bold text-center">{selectedImage.name}</h4>
+            <p className="text-center text-gray-700">{selectedImage.role}</p>
+          </div>
         </div>
       )}
     </div>
